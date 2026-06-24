@@ -421,7 +421,8 @@ const PUBLI_PER_PAGE = 4;
 const Home = () => {
   const [showClock, setShowClock] = useState(false);
   const [time, setTime] = useState(new Date());
-
+  const activeYearRef = useRef(null);
+  const [showContent, setShowContent] = useState(false);
   const yearsContainerRef = useRef(null);
   const [likedYears, setLikedYears] = useState([]);
   const [currentYear, setCurrentYear] = useState(timelineParagraphs[0].year);
