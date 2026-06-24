@@ -439,11 +439,6 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // ── Scroll to active year ───────────────────────────────────────────────
-  useEffect(() => {
-    activeYearRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, [currentYear]);
-
   // ── Fetch publicacions ──────────────────────────────────────────────────
   useEffect(() => {
     (async () => {
