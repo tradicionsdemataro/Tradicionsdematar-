@@ -423,17 +423,9 @@ const Home = () => {
   const [time, setTime] = useState(new Date());
 
   const yearsContainerRef = useRef(null);
-  const activeYearRef = useRef(null);
-
-  const [loading, setLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
   const [likedYears, setLikedYears] = useState([]);
-  const [selectedYears, setSelectedYears] = useState([]);
   const [currentYear, setCurrentYear] = useState(timelineParagraphs[0].year);
   const [playedYears, setPlayedYears] = useState([]);
-  const [sliderIndex, setSliderIndex] = useState(0);
-  const [carouselIndex, setCarouselIndex] = useState(0);
-
   // ── Publicacions state ──────────────────────────────────────────────────
   const [publis, setPublis]             = useState([]);
   const [publiLoading, setPubliLoading] = useState(true);
@@ -531,13 +523,7 @@ const Home = () => {
     }
   };
 
-  const toggleSelectYear = (year) => {
-    if (selectedYears.length === 0) setSelectedYears([year]);
-    else if (selectedYears.length === 1) {
-      if (year === selectedYears[0]) setSelectedYears([]);
-      else setSelectedYears([selectedYears[0], year]);
-    } else setSelectedYears([year]);
-  };
+
 
   const toggleLike = (year) => {
     setLikedYears(prev =>
@@ -545,22 +531,7 @@ const Home = () => {
     );
   };
 
-  const handlePlayRange = () => {
-    if (selectedYears.length === 2) {
-      const [start, end] = selectedYears[0] < selectedYears[1]
-        ? selectedYears
-        : [selectedYears[1], selectedYears[0]];
-      const rangeYears = timelineParagraphs
-        .filter(p => p.year >= start && p.year <= end)
-        .map(p => p.year);
-      playSequentialAudio(rangeYears);
-    }
-  };
 
-  const handleTrobaClick = (year) => {
-    handleYearClick(year);
-    document.querySelector('.timeline-section')?.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
 
   const currentItem = timelineParagraphs.find(p => p.year === currentYear);
 

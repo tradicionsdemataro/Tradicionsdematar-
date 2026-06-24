@@ -90,10 +90,13 @@ function MapFlyTo({ coords }) {
 
 function MapInstance({ onReady }) {
   const map = useMap();
-  useEffect(() => { onReady(map); }, [map]);
+
+  useEffect(() => {
+    onReady(map);
+  }, [map, onReady]); // 👈 AIXÒ ÉS EL FIX
+
   return null;
 }
-
 const MATARO = [41.5372, 2.4451];
 
 // ─── VIEW MODES ───────────────────────────────────────────────────────────────

@@ -15,9 +15,6 @@ function fmtDate(raw) {
 function getToken() {
   return localStorage.getItem("token") || sessionStorage.getItem("token") || null;
 }
-function getUserName() {
-  return localStorage.getItem("username") || localStorage.getItem("name") || sessionStorage.getItem("username") || "Usuari";
-}
 
 const ESTAT_COLORS = {
   publicat:  "var(--yellow)",
