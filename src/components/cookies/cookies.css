@@ -1,0 +1,162 @@
+/* BARRA DE COOKIES */
+.cookies-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(#2b2b2b, #1f1f1f);
+  color: #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  font-size: 14px;
+  z-index: 9999;
+}
+
+.cookies-bar p {
+  margin: 0;
+}
+
+.cookies-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* BOTONES */
+.cookies-accept {
+  background: #c6a56d;
+  color: #000;
+  border: none;
+  padding: 6px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cookies-config {
+  background: #3a3a3a;
+  color: #fff;
+  border: 1px solid #666;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.cookies-accept:hover,
+.cookies-config:hover {
+  opacity: 0.85;
+}
+
+/* MODAL OVERLAY */
+.cookies-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+/* OVERLAY */
+.cookies-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+/* MODAL PRIVACITAT */
+.cookies-modal.privacy {
+  position: relative;
+  background: #ffffff;
+  width: 520px;
+  max-width: 95%;
+  border-radius: 4px;
+  padding: 22px 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* TÍTOLS */
+.cookies-modal.privacy h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.cookies-intro {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* SECCIONS */
+.cookies-modal.privacy .cookies-section {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.cookies-modal.privacy h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.cookies-modal.privacy p {
+  font-size: 13px;
+  color: #444;
+}
+
+/* TOGGLE */
+.cookie-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.cookie-toggle.disabled {
+  opacity: 0.6;
+}
+
+/* LINKS */
+.cookies-links {
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+.cookies-links a {
+  color: #c6a56d;
+  text-decoration: none;
+}
+
+.cookies-links a:hover {
+  text-decoration: underline;
+}
+
+/* BOTONS */
+.cookies-modal-actions {
+  margin-top: 18px;
+  text-align: right;
+}
+
+.cookies-modal-actions .primary {
+  background: #c6a56d;
+  border: none;
+  padding: 7px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* TANCAR */
+.cookies-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+}
