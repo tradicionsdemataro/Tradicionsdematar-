@@ -90,7 +90,7 @@ function MapFlyTo({ coords }) {
 
 function MapInstance({ onReady }) {
   const map = useMap();
-  useEffect(() => { onReady(map); }, [map]);
+  useEffect(() => { onReady(map); }, [map, onReady]);
   return null;
 }
 

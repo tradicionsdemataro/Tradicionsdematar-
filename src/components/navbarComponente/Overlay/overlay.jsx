@@ -1,18 +1,18 @@
 // overlay.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./overlay.css";
 import SearchContent from "./SearchContent.jsx";
 
 const Overlay = ({ isOpen, onClose }) => {
   const [isClosing, setIsClosing] = useState(false);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsClosing(true);
     setTimeout(() => {
       setIsClosing(false);
       onClose();
     }, 450);
-  };
+  }, [onClose]);
 
   // Tancar amb ESC
   useEffect(() => {
@@ -21,7 +21,7 @@ const Overlay = ({ isOpen, onClose }) => {
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [isOpen]);
+  }, [isOpen, handleClose]);
 
   // Bloquejar scroll del body quan overlay obert
   useEffect(() => {

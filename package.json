@@ -19,12 +19,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set WATCHPACK_POLLING=true&& react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "backend": "",
-    "dev": "concurrently \"npm run start\" \"npm run backend\""
+    "dev": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [

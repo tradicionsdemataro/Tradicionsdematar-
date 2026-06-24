@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbarComponente/navbar.jsx";
 import Home from "./home.jsx";
 import Agenda from "./agenda.jsx";
 import Equip from "./equip.jsx";
