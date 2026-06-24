@@ -119,7 +119,7 @@ const Navbar = () => {
     fetchCategorias();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [token]);
 
 
   useEffect(() => {

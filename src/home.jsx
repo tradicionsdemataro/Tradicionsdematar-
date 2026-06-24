@@ -320,39 +320,11 @@ const timelineParagraphs = [
   }
 ];
 
-const sliderItems = [
-  { text: "Vols unir-te a Tradicions Mataró?", link: "/unirte" },
-  { text: "Vols contactar amb nosaltres?", link: "/contactar" },
-  { text: "Vols saber qui som?", link: "/qui-som" },
-];
-
-const imageCarousel = [
-  "/images/carrusel1.jpg",
-  "/images/carrusel2.jpg",
-  "/images/carrusel3.jpg"
-];
-
-const featuredArticles = [
-  { titol: "La Mostra de Gegants torna amb força", categoria: "Cultura Popular", img: "/images/articles/gegants.jpg", data: "12 Maig 2026" },
-  { titol: "Entrevista exclusiva amb els organitzadors de la Festa Major", categoria: "Entrevistes", img: "/images/articles/festamajor.jpg", data: "28 Abril 2026" },
-  { titol: "Documental: Els oficis tradicionals de Mataró", categoria: "Audiovisual", img: "/images/articles/oficis.jpg", data: "15 Abril 2026" },
-  { titol: "Sant Jordi 2026: el conte commemoratiu", categoria: "Projectes Especials", img: "/images/articles/santjordi.jpg", data: "23 Abril 2026" }
-];
-
 const statsData = [
   { numero: "10", label: "Anys de trajectòria" },
   { numero: "150", label: "Reportatges publicats" },
   { numero: "40", label: "Trobades i esdeveniments" },
   { numero: "5K", label: "Seguidors a les xarxes" }
-];
-
-const featuredTrobans = [
-  { year: 2025, titol: "Presentació de la nova marca", desc: "Esdeveniment públic per donar a conèixer el rebranding i el nou lema." },
-  { year: 2024, titol: "Rodatge del documental", desc: "Trobada amb els protagonistes per planificar les entrevistes en profunditat." },
-  { year: 2022, titol: "Exposició 'Memòria Viva'", desc: "Inauguració amb trobada d'entitats culturals de la ciutat." },
-  { year: 2021, titol: "Festa Major adaptada", desc: "Trobada a l'aire lliure amb mesures de seguretat i format híbrid." },
-  { year: 2018, titol: "Trobada amb artistes locals", desc: "Sessió de col·laboració al Tecla Sala per definir noves seccions." },
-  { year: 2016, titol: "Mostra de Gegants 2016", desc: "Cobertura completa amb fotografies i vídeos exclusius de la rua." },
 ];
 
 const galleryItems = [
@@ -425,14 +397,10 @@ const Home = () => {
   const yearsContainerRef = useRef(null);
   const activeYearRef = useRef(null);
 
-  const [loading, setLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
+  const [showContent] = useState(true);
   const [likedYears, setLikedYears] = useState([]);
-  const [selectedYears, setSelectedYears] = useState([]);
   const [currentYear, setCurrentYear] = useState(timelineParagraphs[0].year);
   const [playedYears, setPlayedYears] = useState([]);
-  const [sliderIndex, setSliderIndex] = useState(0);
-  const [carouselIndex, setCarouselIndex] = useState(0);
 
   // ── Publicacions state ──────────────────────────────────────────────────
   const [publis, setPublis]             = useState([]);
@@ -531,35 +499,10 @@ const Home = () => {
     }
   };
 
-  const toggleSelectYear = (year) => {
-    if (selectedYears.length === 0) setSelectedYears([year]);
-    else if (selectedYears.length === 1) {
-      if (year === selectedYears[0]) setSelectedYears([]);
-      else setSelectedYears([selectedYears[0], year]);
-    } else setSelectedYears([year]);
-  };
-
   const toggleLike = (year) => {
     setLikedYears(prev =>
       prev.includes(year) ? prev.filter(y => y !== year) : [...prev, year]
     );
-  };
-
-  const handlePlayRange = () => {
-    if (selectedYears.length === 2) {
-      const [start, end] = selectedYears[0] < selectedYears[1]
-        ? selectedYears
-        : [selectedYears[1], selectedYears[0]];
-      const rangeYears = timelineParagraphs
-        .filter(p => p.year >= start && p.year <= end)
-        .map(p => p.year);
-      playSequentialAudio(rangeYears);
-    }
-  };
-
-  const handleTrobaClick = (year) => {
-    handleYearClick(year);
-    document.querySelector('.timeline-section')?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const currentItem = timelineParagraphs.find(p => p.year === currentYear);

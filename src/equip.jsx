@@ -17,7 +17,7 @@ const membres = [
 ];
 
 const Equip = () => {
-  const [showContent, setShowContent] = useState(false);
+  const [, setShowContent] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowContent(true), 600);
